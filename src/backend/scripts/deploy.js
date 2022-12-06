@@ -1,3 +1,5 @@
+const { ethers } = require("hardhat");
+
 async function main() {
 
   const [deployer] = await ethers.getSigners();
@@ -5,11 +7,15 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  // deploy contracts here:
-  
+  // deploy contracts here
+  const musicNFTMarketplaceFactory = await ethers.getContractFactory("MusicNFTMarketplace");
+  const musicNFTMarketplace = await musicNFTMarketplaceFactory.deploy();  
+  await musicNFTMarketplace.deployed();
+
+  console.log("Smart contract address: ", musicNFTMarketplace.address);
   
   // For each contract, pass the deployed contract and name to this function to save a copy of the contract ABI and address to the front end.
-  saveFrontendFiles();
+  saveFrontendFiles(musicNFTMarketplace, "MusicNFTMarketplace");
 }
 
 function saveFrontendFiles(contract, name) {
