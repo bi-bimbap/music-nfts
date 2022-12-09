@@ -7,7 +7,7 @@ import { Spinner, Navbar, Nav, Button, Container } from 'react-bootstrap'
 import logo from './logo.png'
 import Home from './Home.js'
 import MyTokens from './MyTokens.js'
-// import MyResales from './MyResales.js'
+import MyResales from './MyResales.js'
 import './App.css';
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
             <Container>
               <Navbar.Brand>
                 <img src={logo} width="40" height="40" className="" alt="" />
-                &nbsp; Music NFT player
+                &nbsp; Music NFT Player
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
@@ -83,9 +83,9 @@ function App() {
               <Route path="/my-tokens" element={
                 <MyTokens contract={contract} />
               } />
-              {/* <Route path="/my-resales" element={
+              <Route path="/my-resales" element={
                 <MyResales contract={contract} account={account} />
-              } /> */}
+              } />
             </Routes>
           )}
         </div>
